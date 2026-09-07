@@ -1,0 +1,70 @@
+table 'dm DimFilmCategory'
+	lineageTag: b00e9884-bf15-435b-aa66-15f65f00859e
+
+	column DimFilmCategory_SK
+		dataType: int64
+		formatString: 0
+		lineageTag: e64b3f24-703c-4d99-9fd9-f854592903f4
+		summarizeBy: sum
+		sourceColumn: DimFilmCategory_SK
+
+		annotation SummarizationSetBy = Automatic
+
+	column last_update
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: ef99f236-e513-45d0-9663-eca81599cbb7
+		summarizeBy: none
+		sourceColumn: last_update
+
+		variation Variation
+			isDefault
+			relationship: c66395c5-1749-4d93-901c-55e21d3591c5
+			defaultHierarchy: LocalDateTable_55c37a9a-5ea7-4bd1-85ed-f363f2f141bb.Datohierarki
+
+		annotation SummarizationSetBy = Automatic
+
+	column film_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 5d4d20e0-da4f-44bc-8c3a-6bd0739f8978
+		summarizeBy: none
+		sourceColumn: film_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column category_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 3b71bf20-94bc-4785-85db-177002febab1
+		summarizeBy: none
+		sourceColumn: category_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column load_datetime
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: c31d97eb-665a-4336-a4b9-75a5d9226720
+		summarizeBy: none
+		sourceColumn: load_datetime
+
+		variation Variation
+			isDefault
+			relationship: 20029a82-a1cd-4060-91f7-bb04f9102e3d
+			defaultHierarchy: LocalDateTable_2f975bd8-e617-4f4c-8246-74f6f530e28f.Datohierarki
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'dm DimFilmCategory' = m
+		mode: import
+		source =
+				let
+				    Kilde = Sql.Databases(".\SQLEXPRESS01"),
+				    DVD_rental_OLTP = Kilde{[Name="DVD_rental_OLTP"]}[Data],
+				    dm_DimFilmCategory = DVD_rental_OLTP{[Schema="dm",Item="DimFilmCategory"]}[Data]
+				in
+				    dm_DimFilmCategory
+
+	annotation PBI_ResultType = Table
+

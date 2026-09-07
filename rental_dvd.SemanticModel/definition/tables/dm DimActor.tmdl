@@ -1,0 +1,77 @@
+table 'dm DimActor'
+	lineageTag: acfff870-264a-4b62-aa38-b35e578c5225
+
+	column DimActor_SK
+		dataType: int64
+		formatString: 0
+		lineageTag: 1934dea0-8f33-433d-9114-815bdf1ede38
+		summarizeBy: sum
+		sourceColumn: DimActor_SK
+
+		annotation SummarizationSetBy = Automatic
+
+	column last_update
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 733f43e6-3dfc-470b-93d5-67100816a576
+		summarizeBy: none
+		sourceColumn: last_update
+
+		variation Variation
+			isDefault
+			relationship: a6f9a342-554a-489e-b907-9588c276387a
+			defaultHierarchy: LocalDateTable_7ea8286e-8c6c-40f2-bbd5-b09dc1a3751d.Datohierarki
+
+		annotation SummarizationSetBy = Automatic
+
+	column load_datetime
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 4c5e0aea-60d8-46de-82bc-d73f6ccf4bc4
+		summarizeBy: none
+		sourceColumn: load_datetime
+
+		variation Variation
+			isDefault
+			relationship: 5ed4b58b-ec12-42b4-bc6b-f73a90575f36
+			defaultHierarchy: LocalDateTable_13910237-3a20-47f6-80f9-d25f8b6c99fb.Datohierarki
+
+		annotation SummarizationSetBy = Automatic
+
+	column first_name
+		dataType: string
+		lineageTag: efd88854-494e-42ce-8aa4-3f8d2666c3dd
+		summarizeBy: none
+		sourceColumn: first_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column last_name
+		dataType: string
+		lineageTag: 745eb0f2-9fcf-4ed3-9a82-4ca38b28c06c
+		summarizeBy: none
+		sourceColumn: last_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column actor_id
+		dataType: int64
+		formatString: 0
+		lineageTag: a10eddbf-af78-4c5e-9531-f7b0e499ae1a
+		summarizeBy: sum
+		sourceColumn: actor_id
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'dm DimActor' = m
+		mode: import
+		source =
+				let
+				    Kilde = Sql.Databases(".\SQLEXPRESS01"),
+				    DVD_rental_OLTP = Kilde{[Name="DVD_rental_OLTP"]}[Data],
+				    dm_DimActor = DVD_rental_OLTP{[Schema="dm",Item="DimActor"]}[Data]
+				in
+				    dm_DimActor
+
+	annotation PBI_ResultType = Table
+

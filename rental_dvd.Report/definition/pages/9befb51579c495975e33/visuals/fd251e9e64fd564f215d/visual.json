@@ -1,0 +1,294 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "fd251e9e64fd564f215d",
+  "position": {
+    "x": 1331.7368800147406,
+    "y": 61.749778053233719,
+    "z": 1000,
+    "height": 174.95770448416221,
+    "width": 296.39893465552188,
+    "tabOrder": 1000
+  },
+  "visual": {
+    "visualType": "slicer",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "PropertyVariationSource": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "dm DimRentalDate"
+                            }
+                          },
+                          "Name": "Variation",
+                          "Property": "rental_date"
+                        }
+                      },
+                      "Hierarchy": "Datohierarki"
+                    }
+                  },
+                  "Level": "År"
+                }
+              },
+              "queryRef": "dm DimRentalDate.rental_date.Variation.Datohierarki.År",
+              "nativeQueryRef": "rental_date År",
+              "active": true
+            },
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "PropertyVariationSource": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "dm DimRentalDate"
+                            }
+                          },
+                          "Name": "Variation",
+                          "Property": "rental_date"
+                        }
+                      },
+                      "Hierarchy": "Datohierarki"
+                    }
+                  },
+                  "Level": "Måned"
+                }
+              },
+              "queryRef": "dm DimRentalDate.rental_date.Variation.Datohierarki.Måned",
+              "nativeQueryRef": "rental_date Måned",
+              "active": true
+            },
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "PropertyVariationSource": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "dm DimRentalDate"
+                            }
+                          },
+                          "Name": "Variation",
+                          "Property": "rental_date"
+                        }
+                      },
+                      "Hierarchy": "Datohierarki"
+                    }
+                  },
+                  "Level": "Dag"
+                }
+              },
+              "queryRef": "dm DimRentalDate.rental_date.Variation.Datohierarki.Dag",
+              "nativeQueryRef": "rental_date Dag",
+              "active": true
+            }
+          ]
+        }
+      }
+    },
+    "expansionStates": [
+      {
+        "roles": [
+          "Values"
+        ],
+        "levels": [
+          {
+            "queryRefs": [
+              "dm DimRentalDate.rental_date.Variation.Datohierarki.År"
+            ],
+            "isCollapsed": true,
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "LocalDateTable_950fc505-9ebf-4722-82d6-d1a624087c86"
+                    }
+                  },
+                  "Property": "År"
+                }
+              }
+            ],
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "dm DimRentalDate.rental_date.Variation.Datohierarki.Måned"
+            ],
+            "isCollapsed": true,
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "LocalDateTable_950fc505-9ebf-4722-82d6-d1a624087c86"
+                    }
+                  },
+                  "Property": "Måned"
+                }
+              }
+            ],
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "dm DimRentalDate.rental_date.Variation.Datohierarki.Dag"
+            ],
+            "isCollapsed": true,
+            "isPinned": true
+          }
+        ],
+        "root": {
+          "children": [
+            {
+              "identityValues": [
+                {
+                  "Literal": {
+                    "Value": "2006L"
+                  }
+                }
+              ],
+              "isToggled": true,
+              "children": [
+                {
+                  "identityValues": [
+                    {
+                      "Literal": {
+                        "Value": "'august'"
+                      }
+                    }
+                  ],
+                  "isToggled": true
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ],
+    "objects": {
+      "data": [
+        {
+          "properties": {
+            "mode": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Dropdown'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {}
+        }
+      ],
+      "header": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Rental date'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "08033ce582daddca69b9",
+        "field": {
+          "HierarchyLevel": {
+            "Expression": {
+              "Hierarchy": {
+                "Expression": {
+                  "PropertyVariationSource": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "dm DimRentalDate"
+                      }
+                    },
+                    "Name": "Variation",
+                    "Property": "rental_date"
+                  }
+                },
+                "Hierarchy": "Datohierarki"
+              }
+            },
+            "Level": "År"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "1d5ad87f95efa7da09ce",
+        "field": {
+          "HierarchyLevel": {
+            "Expression": {
+              "Hierarchy": {
+                "Expression": {
+                  "PropertyVariationSource": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "dm DimRentalDate"
+                      }
+                    },
+                    "Name": "Variation",
+                    "Property": "rental_date"
+                  }
+                },
+                "Hierarchy": "Datohierarki"
+              }
+            },
+            "Level": "Måned"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "8c61387d53a468f4cc74",
+        "field": {
+          "HierarchyLevel": {
+            "Expression": {
+              "Hierarchy": {
+                "Expression": {
+                  "PropertyVariationSource": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "dm DimRentalDate"
+                      }
+                    },
+                    "Name": "Variation",
+                    "Property": "rental_date"
+                  }
+                },
+                "Hierarchy": "Datohierarki"
+              }
+            },
+            "Level": "Dag"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

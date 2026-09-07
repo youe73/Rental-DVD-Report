@@ -1,0 +1,243 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "2166aca7ce6224d11d93",
+  "position": {
+    "x": 1331.7368800147406,
+    "y": 284.04897904487513,
+    "z": 2000,
+    "height": 174.95770448416221,
+    "width": 296.39893465552188,
+    "tabOrder": 2000
+  },
+  "visual": {
+    "visualType": "slicer",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "PropertyVariationSource": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "dm DimReturnDate"
+                            }
+                          },
+                          "Name": "Variation",
+                          "Property": "return_date"
+                        }
+                      },
+                      "Hierarchy": "Datohierarki"
+                    }
+                  },
+                  "Level": "År"
+                }
+              },
+              "queryRef": "dm DimReturnDate.return_date.Variation.Datohierarki.År",
+              "nativeQueryRef": "return_date År",
+              "active": true
+            },
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "PropertyVariationSource": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "dm DimReturnDate"
+                            }
+                          },
+                          "Name": "Variation",
+                          "Property": "return_date"
+                        }
+                      },
+                      "Hierarchy": "Datohierarki"
+                    }
+                  },
+                  "Level": "Måned"
+                }
+              },
+              "queryRef": "dm DimReturnDate.return_date.Variation.Datohierarki.Måned",
+              "nativeQueryRef": "return_date Måned",
+              "active": false
+            },
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "PropertyVariationSource": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "dm DimReturnDate"
+                            }
+                          },
+                          "Name": "Variation",
+                          "Property": "return_date"
+                        }
+                      },
+                      "Hierarchy": "Datohierarki"
+                    }
+                  },
+                  "Level": "Dag"
+                }
+              },
+              "queryRef": "dm DimReturnDate.return_date.Variation.Datohierarki.Dag",
+              "nativeQueryRef": "return_date Dag",
+              "active": false
+            }
+          ]
+        }
+      }
+    },
+    "expansionStates": [
+      {
+        "roles": [
+          "Values"
+        ],
+        "levels": [
+          {
+            "queryRefs": [
+              "dm DimReturnDate.return_date.Variation.Datohierarki.År"
+            ],
+            "isCollapsed": true,
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "dm DimReturnDate.return_date.Variation.Datohierarki.Måned"
+            ],
+            "isCollapsed": true
+          },
+          {
+            "queryRefs": [
+              "dm DimReturnDate.return_date.Variation.Datohierarki.Dag"
+            ],
+            "isCollapsed": true
+          }
+        ],
+        "root": {}
+      }
+    ],
+    "objects": {
+      "data": [
+        {
+          "properties": {
+            "mode": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Dropdown'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {}
+        }
+      ],
+      "header": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Return date'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "be1d8d5a502976e7799d",
+        "field": {
+          "HierarchyLevel": {
+            "Expression": {
+              "Hierarchy": {
+                "Expression": {
+                  "PropertyVariationSource": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "dm DimReturnDate"
+                      }
+                    },
+                    "Name": "Variation",
+                    "Property": "return_date"
+                  }
+                },
+                "Hierarchy": "Datohierarki"
+              }
+            },
+            "Level": "År"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "73d475eea102ec2afa12",
+        "field": {
+          "HierarchyLevel": {
+            "Expression": {
+              "Hierarchy": {
+                "Expression": {
+                  "PropertyVariationSource": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "dm DimReturnDate"
+                      }
+                    },
+                    "Name": "Variation",
+                    "Property": "return_date"
+                  }
+                },
+                "Hierarchy": "Datohierarki"
+              }
+            },
+            "Level": "Måned"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "b2238706eb544a3fb2a8",
+        "field": {
+          "HierarchyLevel": {
+            "Expression": {
+              "Hierarchy": {
+                "Expression": {
+                  "PropertyVariationSource": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "dm DimReturnDate"
+                      }
+                    },
+                    "Name": "Variation",
+                    "Property": "return_date"
+                  }
+                },
+                "Hierarchy": "Datohierarki"
+              }
+            },
+            "Level": "Dag"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

@@ -1,0 +1,203 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "37115ca5a0759d9805b3",
+  "position": {
+    "x": 808.92209249736175,
+    "y": 61.749778053233719,
+    "z": 3001,
+    "height": 109.0912745607129,
+    "width": 403.431883281127,
+    "tabOrder": 3001
+  },
+  "visual": {
+    "visualType": "slicer",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dm DimFilm"
+                    }
+                  },
+                  "Property": "title"
+                }
+              },
+              "queryRef": "dm DimFilm.title",
+              "nativeQueryRef": "title",
+              "active": true
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dm DimFilm"
+                    }
+                  },
+                  "Property": "rental_rate"
+                }
+              },
+              "queryRef": "dm DimFilm.rental_rate",
+              "nativeQueryRef": "rental_rate",
+              "active": false
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dm DimFilm"
+                    }
+                  },
+                  "Property": "rating"
+                }
+              },
+              "queryRef": "dm DimFilm.rating",
+              "nativeQueryRef": "rating",
+              "active": false
+            }
+          ]
+        }
+      }
+    },
+    "expansionStates": [
+      {
+        "roles": [
+          "Values"
+        ],
+        "levels": [
+          {
+            "queryRefs": [
+              "dm DimFilm.title"
+            ],
+            "isCollapsed": true,
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dm DimFilm"
+                    }
+                  },
+                  "Property": "title"
+                }
+              }
+            ],
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "dm DimFilm.rental_rate"
+            ],
+            "isCollapsed": true,
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dm DimFilm"
+                    }
+                  },
+                  "Property": "rental_rate"
+                }
+              }
+            ],
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "dm DimFilm.rating"
+            ],
+            "isCollapsed": true,
+            "isPinned": true
+          }
+        ],
+        "root": {}
+      }
+    ],
+    "objects": {
+      "data": [
+        {
+          "properties": {
+            "mode": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Dropdown'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {}
+        }
+      ],
+      "header": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Films'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "0d2f661b69d504c6e613",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dm DimFilm"
+              }
+            },
+            "Property": "title"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "b4bfc80fa9c20ae20dce",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dm DimFilm"
+              }
+            },
+            "Property": "rental_rate"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "405e9e1fd633ec1206d4",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dm DimFilm"
+              }
+            },
+            "Property": "rating"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
+  }
+}

@@ -1,0 +1,69 @@
+table 'dm DimCategory'
+	lineageTag: e90a4b84-8ac1-4e86-82ca-5aaf18ffb536
+
+	column DimCategory_SK
+		dataType: int64
+		formatString: 0
+		lineageTag: 3fd8040d-64f4-4561-829e-714efa05c184
+		summarizeBy: sum
+		sourceColumn: DimCategory_SK
+
+		annotation SummarizationSetBy = Automatic
+
+	column name
+		dataType: string
+		lineageTag: 35b102c2-1221-4922-9bd2-17a5ed769bf2
+		summarizeBy: none
+		sourceColumn: name
+
+		annotation SummarizationSetBy = Automatic
+
+	column last_update
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: f54de186-5990-408a-96e4-e37e4711bbfd
+		summarizeBy: none
+		sourceColumn: last_update
+
+		variation Variation
+			isDefault
+			relationship: 6bf80913-706d-4204-a63b-13a52cf5d0b4
+			defaultHierarchy: LocalDateTable_fea00c69-51a1-43af-b529-b2056b3c10e2.Datohierarki
+
+		annotation SummarizationSetBy = Automatic
+
+	column category_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 088dd628-9e3c-44e4-aedb-5895217aaf61
+		summarizeBy: none
+		sourceColumn: category_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column load_datetime
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: b91b6835-ce5a-4499-b66c-3dd0a3439983
+		summarizeBy: none
+		sourceColumn: load_datetime
+
+		variation Variation
+			isDefault
+			relationship: ee34ab4e-8078-4d41-ae6c-e572a95c70c5
+			defaultHierarchy: LocalDateTable_fe8d163e-7b54-42b6-9931-4ef8239d3df5.Datohierarki
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'dm DimCategory' = m
+		mode: import
+		source =
+				let
+				    Kilde = Sql.Databases(".\SQLEXPRESS01"),
+				    DVD_rental_OLTP = Kilde{[Name="DVD_rental_OLTP"]}[Data],
+				    dm_DimCategory = DVD_rental_OLTP{[Schema="dm",Item="DimCategory"]}[Data]
+				in
+				    dm_DimCategory
+
+	annotation PBI_ResultType = Table
+

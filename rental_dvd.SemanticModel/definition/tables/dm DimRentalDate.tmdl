@@ -1,0 +1,88 @@
+table 'dm DimRentalDate'
+	lineageTag: 61ada06e-bcae-4c0a-88a1-2d9f22807fa8
+
+	column DimRentalDate_SK
+		dataType: int64
+		formatString: 0
+		lineageTag: b2af8410-cab4-4b49-a694-e1074b6416f6
+		summarizeBy: none
+		sourceColumn: DimRentalDate_SK
+
+		annotation SummarizationSetBy = Automatic
+
+	column rental_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 445c1949-bc07-4959-81ad-e683c47780ef
+		summarizeBy: none
+		sourceColumn: rental_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column load_datetime
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 3fd43362-4bec-4742-b56b-98238349ec7f
+		summarizeBy: none
+		sourceColumn: load_datetime
+
+		variation Variation
+			isDefault
+			relationship: b1d982c8-fd5a-40b6-bed9-71ab9db74ac5
+			defaultHierarchy: LocalDateTable_4d688817-9e19-411b-ac41-f943a2a44c02.Datohierarki
+
+		annotation SummarizationSetBy = Automatic
+
+	column rental_day
+		dataType: int64
+		formatString: 0
+		lineageTag: bc0c9d07-6a0f-457d-b218-d8898cb37d00
+		summarizeBy: sum
+		sourceColumn: rental_day
+
+		annotation SummarizationSetBy = Automatic
+
+	column rental_date
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 908d027d-4cdf-4051-b076-18a3a149a0ad
+		summarizeBy: none
+		sourceColumn: rental_date
+
+		variation Variation
+			isDefault
+			relationship: 69b79347-2641-41e0-8850-52fa10663fce
+			defaultHierarchy: LocalDateTable_950fc505-9ebf-4722-82d6-d1a624087c86.Datohierarki
+
+		annotation SummarizationSetBy = Automatic
+
+	column rental_year
+		dataType: int64
+		formatString: 0
+		lineageTag: 780d1dfa-3802-41c4-bc0e-6525bcbc71b8
+		summarizeBy: sum
+		sourceColumn: rental_year
+
+		annotation SummarizationSetBy = Automatic
+
+	column rental_month
+		dataType: int64
+		formatString: 0
+		lineageTag: 8db6222f-9f6f-4ce3-a55d-de7d8af02ef3
+		summarizeBy: sum
+		sourceColumn: rental_month
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'dm DimRentalDate' = m
+		mode: import
+		source =
+				let
+				    Kilde = Sql.Databases(".\SQLEXPRESS01"),
+				    DVD_rental_OLTP = Kilde{[Name="DVD_rental_OLTP"]}[Data],
+				    dm_DimRentalDate = DVD_rental_OLTP{[Schema="dm",Item="DimRentalDate"]}[Data]
+				in
+				    dm_DimRentalDate
+
+	annotation PBI_ResultType = Table
+

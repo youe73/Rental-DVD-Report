@@ -1,0 +1,79 @@
+table 'dm DimInventory'
+	lineageTag: b9cd465d-cd81-4397-b5b8-b5c329be327f
+
+	column DimInventory_SK
+		dataType: int64
+		formatString: 0
+		lineageTag: 8f1ee70a-dd68-47ca-851c-89bdf86acc90
+		summarizeBy: sum
+		sourceColumn: DimInventory_SK
+
+		annotation SummarizationSetBy = Automatic
+
+	column last_update
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: f130e3d8-fe1d-425f-987f-fba83a380b8a
+		summarizeBy: none
+		sourceColumn: last_update
+
+		variation Variation
+			isDefault
+			relationship: 55e95a48-80a0-4dea-9b9d-3e07edac7d9c
+			defaultHierarchy: LocalDateTable_5c1cc2ff-7e24-412e-bced-b77d488155fe.Datohierarki
+
+		annotation SummarizationSetBy = Automatic
+
+	column store_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 410a6cc2-9c96-449a-ad9d-de7a106377ae
+		summarizeBy: none
+		sourceColumn: store_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column load_datetime
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 663d1e49-7dfd-49c6-b398-917b2625bc55
+		summarizeBy: none
+		sourceColumn: load_datetime
+
+		variation Variation
+			isDefault
+			relationship: ac1b01f3-63cd-451d-bdc9-fbb5d08580a4
+			defaultHierarchy: LocalDateTable_dc30144b-f02e-48ff-b1e3-fb88a05a0676.Datohierarki
+
+		annotation SummarizationSetBy = Automatic
+
+	column inventory_id
+		dataType: int64
+		formatString: 0
+		lineageTag: ceaf928d-a8d8-46f9-a463-f514b7669cb5
+		summarizeBy: sum
+		sourceColumn: inventory_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column film_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 2efddd77-345a-42f2-b8ba-a45ccd94df78
+		summarizeBy: none
+		sourceColumn: film_id
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'dm DimInventory' = m
+		mode: import
+		source =
+				let
+				    Kilde = Sql.Databases(".\SQLEXPRESS01"),
+				    DVD_rental_OLTP = Kilde{[Name="DVD_rental_OLTP"]}[Data],
+				    dm_DimInventory = DVD_rental_OLTP{[Schema="dm",Item="DimInventory"]}[Data]
+				in
+				    dm_DimInventory
+
+	annotation PBI_ResultType = Table
+

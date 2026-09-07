@@ -1,0 +1,48 @@
+model Model
+	culture: da-DK
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: da-DK
+	valueFilterBehavior: independent
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_QueryOrder = ["dm DimActor","dm DimCategory","dm DimCustomer","dm DimFilm","dm DimFilmCategory","dm DimInventory","dm DimRentalDate","dm DimReturnDate","dm DimStore","dm factbasispaymentrental"]
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table 'dm DimActor'
+ref table DateTableTemplate_435290e7-c54c-4c72-9767-7f589e29001a
+ref table LocalDateTable_7ea8286e-8c6c-40f2-bbd5-b09dc1a3751d
+ref table LocalDateTable_13910237-3a20-47f6-80f9-d25f8b6c99fb
+ref table 'dm DimCategory'
+ref table LocalDateTable_fea00c69-51a1-43af-b529-b2056b3c10e2
+ref table LocalDateTable_fe8d163e-7b54-42b6-9931-4ef8239d3df5
+ref table 'dm DimCustomer'
+ref table LocalDateTable_938b6169-a1cb-4528-9d2e-30ef0aa26ccb
+ref table LocalDateTable_5730ff70-1cfd-4edf-8381-e10ab4e5ea33
+ref table LocalDateTable_aa69ff7a-46eb-457d-9e7f-95e8f4acb017
+ref table 'dm DimFilm'
+ref table LocalDateTable_557fef25-71f1-4475-8fb0-19eb003578b1
+ref table 'dm DimFilmCategory'
+ref table LocalDateTable_55c37a9a-5ea7-4bd1-85ed-f363f2f141bb
+ref table LocalDateTable_2f975bd8-e617-4f4c-8246-74f6f530e28f
+ref table 'dm DimInventory'
+ref table LocalDateTable_5c1cc2ff-7e24-412e-bced-b77d488155fe
+ref table LocalDateTable_dc30144b-f02e-48ff-b1e3-fb88a05a0676
+ref table 'dm DimRentalDate'
+ref table LocalDateTable_4d688817-9e19-411b-ac41-f943a2a44c02
+ref table LocalDateTable_950fc505-9ebf-4722-82d6-d1a624087c86
+ref table 'dm DimReturnDate'
+ref table LocalDateTable_4672e7ff-c5d5-456d-9bc7-90b2f4a2acaa
+ref table LocalDateTable_ddaa2351-3684-4411-b1f6-5f5459da5448
+ref table 'dm DimStore'
+ref table LocalDateTable_e9047537-08a7-413d-b322-02cec8bd292d
+ref table LocalDateTable_cfcdab82-7e00-49f8-9449-5b807ac27dfc
+ref table 'dm factbasispaymentrental'
+ref table LocalDateTable_5d79497b-957d-4c2a-a366-5c093713de79
+
+ref cultureInfo da-DK
+

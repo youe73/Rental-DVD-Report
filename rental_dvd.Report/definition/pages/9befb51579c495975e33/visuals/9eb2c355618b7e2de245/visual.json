@@ -1,0 +1,155 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "9eb2c355618b7e2de245",
+  "position": {
+    "x": 1331.7368800147406,
+    "y": 516.63980971205547,
+    "z": 3000,
+    "height": 174.95770448416221,
+    "width": 296.39893465552188,
+    "tabOrder": 3000
+  },
+  "visual": {
+    "visualType": "slicer",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dm DimCustomer"
+                    }
+                  },
+                  "Property": "first_name"
+                }
+              },
+              "queryRef": "dm DimCustomer.first_name",
+              "nativeQueryRef": "first_name",
+              "active": true
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dm DimCustomer"
+                    }
+                  },
+                  "Property": "last_name"
+                }
+              },
+              "queryRef": "dm DimCustomer.last_name",
+              "nativeQueryRef": "last_name",
+              "active": false
+            }
+          ]
+        }
+      }
+    },
+    "expansionStates": [
+      {
+        "roles": [
+          "Values"
+        ],
+        "levels": [
+          {
+            "queryRefs": [
+              "dm DimCustomer.first_name"
+            ],
+            "isCollapsed": true,
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dm DimCustomer"
+                    }
+                  },
+                  "Property": "first_name"
+                }
+              }
+            ],
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "dm DimCustomer.last_name"
+            ],
+            "isCollapsed": true,
+            "isPinned": true
+          }
+        ],
+        "root": {}
+      }
+    ],
+    "objects": {
+      "data": [
+        {
+          "properties": {
+            "mode": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Dropdown'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {}
+        }
+      ],
+      "header": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Customer'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "9df2c239a99bd6f55463",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dm DimCustomer"
+              }
+            },
+            "Property": "first_name"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "704653f887baab00fd20",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dm DimCustomer"
+              }
+            },
+            "Property": "last_name"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
+  }
+}

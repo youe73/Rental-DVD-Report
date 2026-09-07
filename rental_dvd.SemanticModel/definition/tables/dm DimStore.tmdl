@@ -1,0 +1,79 @@
+table 'dm DimStore'
+	lineageTag: 1ac39abd-4856-4e08-a9c5-b90e1a0b46c0
+
+	column DimStore_SK
+		dataType: int64
+		formatString: 0
+		lineageTag: 72f0bc9e-b5e6-40eb-bfec-42d5947ebc13
+		summarizeBy: sum
+		sourceColumn: DimStore_SK
+
+		annotation SummarizationSetBy = Automatic
+
+	column last_update
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 7b9d570e-6580-4525-aa04-28f2e5b7104d
+		summarizeBy: none
+		sourceColumn: last_update
+
+		variation Variation
+			isDefault
+			relationship: 11732220-6a47-481c-9bf1-5fcaba406735
+			defaultHierarchy: LocalDateTable_e9047537-08a7-413d-b322-02cec8bd292d.Datohierarki
+
+		annotation SummarizationSetBy = Automatic
+
+	column store_id
+		dataType: int64
+		formatString: 0
+		lineageTag: f946bff9-d0e2-4446-9cf8-e3afbbafb87d
+		summarizeBy: none
+		sourceColumn: store_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column load_datetime
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 4538f42d-b2a3-4b27-a77e-f3cbfb681a57
+		summarizeBy: none
+		sourceColumn: load_datetime
+
+		variation Variation
+			isDefault
+			relationship: 362de69f-d2b7-4337-8808-c2f06f530e5c
+			defaultHierarchy: LocalDateTable_cfcdab82-7e00-49f8-9449-5b807ac27dfc.Datohierarki
+
+		annotation SummarizationSetBy = Automatic
+
+	column address_id
+		dataType: int64
+		formatString: 0
+		lineageTag: bfa47aa9-520a-422c-a269-48f36cf6d41a
+		summarizeBy: sum
+		sourceColumn: address_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column manager_staff_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 687a1935-880b-49f6-80aa-e5818008e27d
+		summarizeBy: sum
+		sourceColumn: manager_staff_id
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'dm DimStore' = m
+		mode: import
+		source =
+				let
+				    Kilde = Sql.Databases(".\SQLEXPRESS01"),
+				    DVD_rental_OLTP = Kilde{[Name="DVD_rental_OLTP"]}[Data],
+				    dm_DimStore = DVD_rental_OLTP{[Schema="dm",Item="DimStore"]}[Data]
+				in
+				    dm_DimStore
+
+	annotation PBI_ResultType = Table
+

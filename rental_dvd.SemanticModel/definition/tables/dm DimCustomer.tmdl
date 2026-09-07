@@ -1,0 +1,136 @@
+table 'dm DimCustomer'
+	lineageTag: 07f96621-1ae9-491e-b46b-552b00e1e94b
+
+	column DimCustomer_SK
+		dataType: int64
+		formatString: 0
+		lineageTag: e6065992-4c85-4d59-92b3-bd593aee3f17
+		summarizeBy: none
+		sourceColumn: DimCustomer_SK
+
+		annotation SummarizationSetBy = Automatic
+
+	column last_update
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: e3d7fb0e-b5ee-4b76-a44d-50f93549b7fd
+		summarizeBy: none
+		sourceColumn: last_update
+
+		variation Variation
+			isDefault
+			relationship: 8469df81-b424-46d7-ab24-25bdac5aeda8
+			defaultHierarchy: LocalDateTable_938b6169-a1cb-4528-9d2e-30ef0aa26ccb.Datohierarki
+
+		annotation SummarizationSetBy = Automatic
+
+	column store_id
+		dataType: int64
+		formatString: 0
+		lineageTag: a4c90f69-918e-4f1e-9845-acbf850efe5e
+		summarizeBy: none
+		sourceColumn: store_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column load_datetime
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 639e6c08-f48d-466a-83f3-13f916ece43d
+		summarizeBy: none
+		sourceColumn: load_datetime
+
+		variation Variation
+			isDefault
+			relationship: 3abbbe2c-e171-49dd-b874-84e622267d3f
+			defaultHierarchy: LocalDateTable_5730ff70-1cfd-4edf-8381-e10ab4e5ea33.Datohierarki
+
+		annotation SummarizationSetBy = Automatic
+
+	column address_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 77ddd422-a641-4384-8cd0-e5678c5539ed
+		summarizeBy: sum
+		sourceColumn: address_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column email
+		dataType: string
+		lineageTag: e7825a1a-ea35-4c5f-968d-d82b83c25563
+		summarizeBy: none
+		sourceColumn: email
+
+		annotation SummarizationSetBy = Automatic
+
+	column first_name
+		dataType: string
+		lineageTag: 493803cb-7443-4181-94c2-6ce5d5260411
+		summarizeBy: none
+		sourceColumn: first_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column create_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 59af9b3a-674a-4500-8894-2ad4110d3980
+		summarizeBy: none
+		sourceColumn: create_date
+
+		variation Variation
+			isDefault
+			relationship: 1bf488ad-9fe1-4213-a90f-8f5930f57dea
+			defaultHierarchy: LocalDateTable_aa69ff7a-46eb-457d-9e7f-95e8f4acb017.Datohierarki
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column customer_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 07abf104-2bf3-4a2d-8027-cc9b94796276
+		summarizeBy: sum
+		sourceColumn: customer_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column last_name
+		dataType: string
+		lineageTag: 133471aa-73c4-4c7f-9178-dfccaf8eb67c
+		summarizeBy: none
+		sourceColumn: last_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column activebool
+		dataType: string
+		lineageTag: 569f98b1-9b70-4684-a378-3512c320ff50
+		summarizeBy: none
+		sourceColumn: activebool
+
+		annotation SummarizationSetBy = Automatic
+
+	column active
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 149902cd-417d-4041-ad71-6842e6703ecf
+		summarizeBy: none
+		sourceColumn: active
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'dm DimCustomer' = m
+		mode: import
+		source =
+				let
+				    Kilde = Sql.Databases(".\SQLEXPRESS01"),
+				    DVD_rental_OLTP = Kilde{[Name="DVD_rental_OLTP"]}[Data],
+				    dm_DimCustomer = DVD_rental_OLTP{[Schema="dm",Item="DimCustomer"]}[Data]
+				in
+				    dm_DimCustomer
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,180 @@
+table 'dm DimFilm'
+	lineageTag: 80eee290-d084-49b1-b276-350e837c09b7
+
+	column DimFilm_SK
+		dataType: int64
+		formatString: 0
+		lineageTag: 28547025-6936-410f-8c39-17f810fcbbbf
+		summarizeBy: none
+		sourceColumn: DimFilm_SK
+
+		annotation SummarizationSetBy = Automatic
+
+	column length
+		dataType: string
+		lineageTag: 4e8093c2-ab3f-44e1-b004-f200ea41aa31
+		summarizeBy: none
+		sourceColumn: length
+
+		annotation SummarizationSetBy = Automatic
+
+	column language_id
+		dataType: string
+		lineageTag: 921e4947-3d8f-4190-87c7-da88c87dc1a6
+		summarizeBy: none
+		sourceColumn: language_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column rental_duration_days
+		dataType: int64
+		formatString: 0
+		lineageTag: 1d881a76-d3fa-4584-a88f-e22bd120e310
+		summarizeBy: sum
+		sourceColumn: rental_duration_days
+
+		annotation SummarizationSetBy = Automatic
+
+	column replacement_cost
+		dataType: string
+		lineageTag: 4af2651f-1905-45f7-8101-ad24bca186b7
+		summarizeBy: none
+		sourceColumn: replacement_cost
+
+		annotation SummarizationSetBy = Automatic
+
+	column rental_rate
+		dataType: string
+		lineageTag: 511817c5-3e12-4544-acb8-702243e6361a
+		summarizeBy: none
+		sourceColumn: rental_rate
+
+		annotation SummarizationSetBy = Automatic
+
+	column length_minutes
+		dataType: int64
+		formatString: 0
+		lineageTag: 2c68d1d7-623a-4eb0-9c27-90929e8b92e3
+		summarizeBy: sum
+		sourceColumn: length_minutes
+
+		annotation SummarizationSetBy = Automatic
+
+	column description
+		dataType: string
+		lineageTag: 4677b74c-ce2b-45dc-90ad-64b42b41536c
+		summarizeBy: none
+		sourceColumn: description
+
+		annotation SummarizationSetBy = Automatic
+
+	column rental_rate_decimal
+		dataType: double
+		lineageTag: 19d5a144-733a-4bf7-8193-318469538c22
+		summarizeBy: sum
+		sourceColumn: rental_rate_decimal
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column rental_duration
+		dataType: string
+		lineageTag: 536c5c8f-8bca-4a7c-9587-592525dc0d57
+		summarizeBy: none
+		sourceColumn: rental_duration
+
+		annotation SummarizationSetBy = Automatic
+
+	column last_update
+		dataType: string
+		lineageTag: a681fd3d-1c49-49b6-90fd-94c3edded7ee
+		summarizeBy: none
+		sourceColumn: last_update
+
+		annotation SummarizationSetBy = Automatic
+
+	column load_datetime
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 00b44f4a-e365-425e-ab59-55e72f402f66
+		summarizeBy: none
+		sourceColumn: load_datetime
+
+		variation Variation
+			isDefault
+			relationship: a0599492-ee8e-47f1-a7b1-163615ea83ab
+			defaultHierarchy: LocalDateTable_557fef25-71f1-4475-8fb0-19eb003578b1.Datohierarki
+
+		annotation SummarizationSetBy = Automatic
+
+	column title
+		dataType: string
+		lineageTag: 10501430-6ba6-4153-9a3c-8039325ff783
+		summarizeBy: none
+		sourceColumn: title
+
+		annotation SummarizationSetBy = Automatic
+
+	column film_id
+		dataType: string
+		lineageTag: 36fde947-8997-487b-b278-b1b0d3b893c3
+		summarizeBy: none
+		sourceColumn: film_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column fulltext
+		dataType: string
+		lineageTag: 182c5ada-5b2b-4af7-ad1d-f5e368b12167
+		summarizeBy: none
+		sourceColumn: fulltext
+
+		annotation SummarizationSetBy = Automatic
+
+	column rating
+		dataType: string
+		lineageTag: eed563e1-91d1-49ac-a38d-8c34f8757b20
+		summarizeBy: none
+		sourceColumn: rating
+
+		annotation SummarizationSetBy = Automatic
+
+	column replacement_cost_decimal
+		dataType: double
+		lineageTag: a8eb5280-7a35-4f16-8577-8f0e6be5ba0c
+		summarizeBy: sum
+		sourceColumn: replacement_cost_decimal
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column release_year
+		dataType: string
+		lineageTag: 2c7504b8-d925-459d-9b39-78b968ab0433
+		summarizeBy: none
+		sourceColumn: release_year
+
+		annotation SummarizationSetBy = Automatic
+
+	column special_features
+		dataType: string
+		lineageTag: d0e0c8bf-35ca-45fd-ab5b-48126f5d0cb1
+		summarizeBy: none
+		sourceColumn: special_features
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'dm DimFilm' = m
+		mode: import
+		source =
+				let
+				    Kilde = Sql.Databases(".\SQLEXPRESS01"),
+				    DVD_rental_OLTP = Kilde{[Name="DVD_rental_OLTP"]}[Data],
+				    dm_DimFilm = DVD_rental_OLTP{[Schema="dm",Item="DimFilm"]}[Data]
+				in
+				    dm_DimFilm
+
+	annotation PBI_ResultType = Table
+

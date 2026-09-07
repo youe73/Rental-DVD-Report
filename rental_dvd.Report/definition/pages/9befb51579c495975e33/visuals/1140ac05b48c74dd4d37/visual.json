@@ -1,0 +1,300 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "1140ac05b48c74dd4d37",
+  "position": {
+    "x": 121.44123017135965,
+    "y": 265.524045628905,
+    "z": 0,
+    "height": 728.647381028158,
+    "width": 1090.9127456071292,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dm factbasispaymentrental"
+                    }
+                  },
+                  "Property": "totalsale"
+                }
+              },
+              "queryRef": "dm factbasispaymentrental.totalsale",
+              "nativeQueryRef": "totalsale"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dm factbasispaymentrental"
+                        }
+                      },
+                      "Property": "rental_return_days_diff"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(dm factbasispaymentrental.rental_return_days_diff)",
+              "nativeQueryRef": "Sum af rental_return_days_diff"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dm DimFilm"
+                    }
+                  },
+                  "Property": "title"
+                }
+              },
+              "queryRef": "dm DimFilm.title",
+              "nativeQueryRef": "title"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dm DimCustomer"
+                    }
+                  },
+                  "Property": "first_name"
+                }
+              },
+              "queryRef": "dm DimCustomer.first_name",
+              "nativeQueryRef": "first_name"
+            },
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "PropertyVariationSource": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "dm DimRentalDate"
+                            }
+                          },
+                          "Name": "Variation",
+                          "Property": "rental_date"
+                        }
+                      },
+                      "Hierarchy": "Datohierarki"
+                    }
+                  },
+                  "Level": "År"
+                }
+              },
+              "queryRef": "dm DimRentalDate.rental_date.Variation.Datohierarki.År",
+              "nativeQueryRef": "rental_date År"
+            },
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "PropertyVariationSource": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "dm DimRentalDate"
+                            }
+                          },
+                          "Name": "Variation",
+                          "Property": "rental_date"
+                        }
+                      },
+                      "Hierarchy": "Datohierarki"
+                    }
+                  },
+                  "Level": "Måned"
+                }
+              },
+              "queryRef": "dm DimRentalDate.rental_date.Variation.Datohierarki.Måned",
+              "nativeQueryRef": "rental_date Måned"
+            },
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "PropertyVariationSource": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "dm DimRentalDate"
+                            }
+                          },
+                          "Name": "Variation",
+                          "Property": "rental_date"
+                        }
+                      },
+                      "Hierarchy": "Datohierarki"
+                    }
+                  },
+                  "Level": "Dag"
+                }
+              },
+              "queryRef": "dm DimRentalDate.rental_date.Variation.Datohierarki.Dag",
+              "nativeQueryRef": "rental_date Dag"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "79731d8c3214fb6f7747",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dm factbasispaymentrental"
+              }
+            },
+            "Property": "totalsale"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "c7cdf7e9cdc55407ea4c",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "dm factbasispaymentrental"
+                  }
+                },
+                "Property": "rental_return_days_diff"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "962d7a5c31b18d2f899f",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dm DimFilm"
+              }
+            },
+            "Property": "title"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "1b2b182d39d09e9c122b",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dm DimCustomer"
+              }
+            },
+            "Property": "first_name"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "a1cba0a1bce83500b9e2",
+        "field": {
+          "HierarchyLevel": {
+            "Expression": {
+              "Hierarchy": {
+                "Expression": {
+                  "PropertyVariationSource": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "dm DimRentalDate"
+                      }
+                    },
+                    "Name": "Variation",
+                    "Property": "rental_date"
+                  }
+                },
+                "Hierarchy": "Datohierarki"
+              }
+            },
+            "Level": "Dag"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "0b57a843b1e935fa71ec",
+        "field": {
+          "HierarchyLevel": {
+            "Expression": {
+              "Hierarchy": {
+                "Expression": {
+                  "PropertyVariationSource": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "dm DimRentalDate"
+                      }
+                    },
+                    "Name": "Variation",
+                    "Property": "rental_date"
+                  }
+                },
+                "Hierarchy": "Datohierarki"
+              }
+            },
+            "Level": "Måned"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "44783c7fb3650564500d",
+        "field": {
+          "HierarchyLevel": {
+            "Expression": {
+              "Hierarchy": {
+                "Expression": {
+                  "PropertyVariationSource": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "dm DimRentalDate"
+                      }
+                    },
+                    "Name": "Variation",
+                    "Property": "rental_date"
+                  }
+                },
+                "Hierarchy": "Datohierarki"
+              }
+            },
+            "Level": "År"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

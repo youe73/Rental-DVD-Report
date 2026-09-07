@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "rental_dvd"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "7f1bbfae-e971-44f2-81b3-e383a5a25f49"
+  }
+}

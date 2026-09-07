@@ -1,0 +1,140 @@
+table 'dm factbasispaymentrental'
+	lineageTag: f7757b93-eb01-42a0-b152-12bdaa2097ee
+
+	measure totalsale = ```
+			SUM('dm factbasispaymentrental'[amount]) 
+			```
+		lineageTag: c4ab3d1e-fb17-41b2-9d1c-871ee1eb26ba
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Return days diff count' = COUNT('dm factbasispaymentrental'[rental_return_days_diff])
+		formatString: 0
+		lineageTag: 0b0d6875-ec73-49aa-bc21-27c63d350531
+
+	column rental_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 7df584ea-5141-4fc1-909f-343368379ba5
+		summarizeBy: sum
+		sourceColumn: rental_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column customer_id
+		dataType: int64
+		formatString: 0
+		lineageTag: f10d5634-ef15-4d25-b9e0-7d7e05d5c1aa
+		summarizeBy: sum
+		sourceColumn: customer_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column DimCustomer_sk
+		dataType: int64
+		formatString: 0
+		lineageTag: 36cc98d2-b8f6-44d0-949f-c272c844c4eb
+		summarizeBy: none
+		sourceColumn: DimCustomer_sk
+
+		annotation SummarizationSetBy = Automatic
+
+	column film_id
+		dataType: int64
+		formatString: 0
+		lineageTag: e7f71a36-51f1-4fb8-be97-86ceaaba48ef
+		summarizeBy: none
+		sourceColumn: film_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column DimFilm_sk
+		dataType: int64
+		formatString: 0
+		lineageTag: cad03f38-ff20-433d-8bb8-061553ae00d6
+		summarizeBy: none
+		sourceColumn: DimFilm_sk
+
+		annotation SummarizationSetBy = Automatic
+
+	column store_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 96c2bcc4-bb37-4ef2-a424-0f3c1fa09d26
+		summarizeBy: sum
+		sourceColumn: store_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column DimStore_sk
+		dataType: int64
+		formatString: 0
+		lineageTag: 487e74cf-1110-4f58-a6de-05634c05b0a0
+		summarizeBy: sum
+		sourceColumn: DimStore_sk
+
+		annotation SummarizationSetBy = Automatic
+
+	column DimRentaldate_sk
+		dataType: int64
+		formatString: 0
+		lineageTag: 487d3bb8-10d9-4741-a80a-c11870d861f6
+		summarizeBy: none
+		sourceColumn: DimRentaldate_sk
+
+		annotation SummarizationSetBy = Automatic
+
+	column DimReturndate_sk
+		dataType: int64
+		formatString: 0
+		lineageTag: c3006821-a8a1-4b03-983e-6dd0d815ee57
+		summarizeBy: sum
+		sourceColumn: DimReturndate_sk
+
+		annotation SummarizationSetBy = Automatic
+
+	column amount
+		dataType: double
+		lineageTag: d76cb558-18c8-4f49-aaa4-39e8ba143f06
+		summarizeBy: sum
+		sourceColumn: amount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column rental_return_days_diff
+		dataType: int64
+		formatString: 0
+		lineageTag: 295dd310-0a14-48d6-80f4-240d9b332ee2
+		summarizeBy: sum
+		sourceColumn: rental_return_days_diff
+
+		annotation SummarizationSetBy = Automatic
+
+	column load_datetime
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: ddeb3b46-2de9-4852-97da-1d1beeb456f3
+		summarizeBy: none
+		sourceColumn: load_datetime
+
+		variation Variation
+			isDefault
+			relationship: e3014a83-cbb6-43f8-a9ee-136284f5184f
+			defaultHierarchy: LocalDateTable_5d79497b-957d-4c2a-a366-5c093713de79.Datohierarki
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'dm factbasispaymentrental' = m
+		mode: import
+		source =
+				let
+				    Kilde = Sql.Databases(".\SQLEXPRESS01"),
+				    DVD_rental_OLTP = Kilde{[Name="DVD_rental_OLTP"]}[Data],
+				    dm_factbasispaymentrental = DVD_rental_OLTP{[Schema="dm",Item="factbasispaymentrental"]}[Data]
+				in
+				    dm_factbasispaymentrental
+
+	annotation PBI_ResultType = Table
+

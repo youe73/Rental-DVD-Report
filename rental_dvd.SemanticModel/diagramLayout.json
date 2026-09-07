@@ -1,0 +1,152 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 135.19999694824219,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 1335.6558968912666,
+            "y": 425.82998251080153
+          },
+          "nodeIndex": "dm DimActor",
+          "nodeLineageTag": "acfff870-264a-4b62-aa38-b35e578c5225",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1101.6558968912666,
+            "y": 538.92825449907127
+          },
+          "nodeIndex": "dm DimCategory",
+          "nodeLineageTag": "e90a4b84-8ac1-4e86-82ca-5aaf18ffb536",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 337.05559900013691,
+            "y": -50
+          },
+          "nodeIndex": "dm DimCustomer",
+          "nodeLineageTag": "07f96621-1ae9-491e-b46b-552b00e1e94b",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 439.70421436111712,
+            "y": 725.65996502160294
+          },
+          "nodeIndex": "dm DimFilm",
+          "nodeLineageTag": "80eee290-d084-49b1-b276-350e837c09b7",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 726.85161030942982,
+            "y": 537.50245304751979
+          },
+          "nodeIndex": "dm DimFilmCategory",
+          "nodeLineageTag": "b00e9884-bf15-435b-aa66-15f65f00859e",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 935.79682287960134,
+            "y": 261.98882970264526
+          },
+          "nodeIndex": "dm DimInventory",
+          "nodeLineageTag": "b9cd465d-cd81-4397-b5b8-b5c329be327f",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 50,
+            "y": 279.29870901258937
+          },
+          "nodeIndex": "dm DimRentalDate",
+          "nodeLineageTag": "61ada06e-bcae-4c0a-88a1-2d9f22807fa8",
+          "size": {
+            "height": 248,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 118.86425892898467,
+            "y": 579.59713753144388
+          },
+          "nodeIndex": "dm DimReturnDate",
+          "nodeLineageTag": "d2f7f125-790e-436f-872d-cb6da9f53798",
+          "size": {
+            "height": 248,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 623.52168349993258,
+            "y": 32.178466377204359
+          },
+          "nodeIndex": "dm DimStore",
+          "nodeLineageTag": "1ac39abd-4856-4e08-a9c5-b90e1a0b46c0",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 405.91967125679048,
+            "y": 371.90635004892522
+          },
+          "nodeIndex": "dm factbasispaymentrental",
+          "nodeLineageTag": "f7757b93-eb01-42a0-b152-12bdaa2097ee",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "Alle tabeller",
+      "zoomValue": 100,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "Alle tabeller",
+  "defaultDiagram": "Alle tabeller"
+}
